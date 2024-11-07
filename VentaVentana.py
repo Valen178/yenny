@@ -117,12 +117,14 @@ def update_sales_list(sales_list):
 def open_sales_crud(root, open_main_window):
     root.destroy()
     sales_window = tk.Toplevel()
+
     ancho_ventana = 600
     alto_ventana = 700
     x_ventana = sales_window.winfo_screenwidth() // 2 - ancho_ventana // 2
     y_ventana = sales_window.winfo_screenheight() // 2 - alto_ventana // 2
     posicion = str(ancho_ventana) + "x" + str(alto_ventana) + "+" + str(x_ventana) + "+" + str(y_ventana)
     sales_window.geometry(posicion)
+    
     sales_window.title("Gestión de Ventas")
     # sales_window.geometry("600x700")
 
