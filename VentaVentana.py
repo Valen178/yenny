@@ -117,39 +117,42 @@ def update_sales_list(sales_list):
 def open_sales_crud(root, open_main_window):
     root.destroy()
     sales_window = tk.Toplevel()
+
     ancho_ventana = 600
     alto_ventana = 700
     x_ventana = sales_window.winfo_screenwidth() // 2 - ancho_ventana // 2
     y_ventana = sales_window.winfo_screenheight() // 2 - alto_ventana // 2
     posicion = str(ancho_ventana) + "x" + str(alto_ventana) + "+" + str(x_ventana) + "+" + str(y_ventana)
+
     sales_window.geometry(posicion)
+    sales_window.configure(bg="#f8f8f8")
     sales_window.title("Gestión de Ventas")
     # sales_window.geometry("600x700")
 
-    tk.Label(sales_window, text="Seleccione un Libro:").pack(pady=5)
-    book_list = tk.Listbox(sales_window, width=60, height=5)
-    book_list.pack(pady=10)
+    tk.Label(sales_window, text="Seleccione un Libro:", font=("Arial", 14), bg="#f8f8f8").pack(pady=5)
+    book_list = tk.Listbox(sales_window, width=90, height=5)
+    book_list.pack(pady=5)
     update_book_list(book_list)
 
-    tk.Label(sales_window, text="Cantidad para Agregar:").pack(pady=5)
-    quantity_entry = tk.Entry(sales_window, width=8)
+    tk.Label(sales_window, text="Cantidad para Agregar:", font=("Arial", 14), bg="#f8f8f8").pack(pady=5)
+    quantity_entry = tk.Entry(sales_window, width=20,font=("Arial", 12))
     quantity_entry.pack(pady=5)
 
-    tk.Button(sales_window, text="Agregar al Carrito", command=lambda: add_to_cart(book_list, quantity_entry, cart_list, cart)).pack(pady=5)
+    tk.Button(sales_window, text="Agregar al Carrito", command=lambda: add_to_cart(book_list, quantity_entry, cart_list, cart), bg="#d3d3d3", font=("Arial", 10),activebackground= "#b5b5b5").pack(pady=5)
 
     cart = []  # Lista de libro seleccionados para la venta
-    tk.Label(sales_window, text="Carrito:").pack(pady=10)
-    cart_list = tk.Listbox(sales_window, width=60, height=5)
-    cart_list.pack(pady=10)
+    tk.Label(sales_window, text="Carrito:", font=("Arial", 14), bg="#f8f8f8").pack(pady=5)
+    cart_list = tk.Listbox(sales_window, width=90, height=5)
+    cart_list.pack(pady=5)
 
-    tk.Button(sales_window, text="Finalizar Venta", command=lambda: finalize_sale(cart, cart_list, sales_list)).pack(pady=10)
+    tk.Button(sales_window, text="Finalizar Venta", command=lambda: finalize_sale(cart, cart_list, sales_list), bg="#d3d3d3", font=("Arial", 10),activebackground= "#b5b5b5").pack(pady=5)
 
-    tk.Label(sales_window, text="Registro de Ventas:").pack(pady=10)
-    sales_list = tk.Listbox(sales_window, width=60, height=5)
-    sales_list.pack(pady=10)
+    tk.Label(sales_window, text="Registro de Ventas:", font=("Arial", 14), bg="#f8f8f8").pack(pady=10)
+    sales_list = tk.Listbox(sales_window, width=90, height=5)
+    sales_list.pack(pady=5)
     update_sales_list(sales_list)
 
-    tk.Button(sales_window, text="Volver", command=lambda: go_back(sales_window, open_main_window)).pack(pady=10)
+    tk.Button(sales_window, text="VOLVER",width=10, command=lambda: go_back(sales_window, open_main_window), bg="#84001c", fg="#F8F8F8", font=("Arial", 10,"bold"),activebackground= "#6c0017",activeforeground="#eeeeee").pack(pady=5)
 
 def go_back(current_window, open_main_window):
     current_window.destroy()

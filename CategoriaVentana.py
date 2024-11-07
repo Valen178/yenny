@@ -88,30 +88,31 @@ def update_category_list(category_list):
 def open_category_crud(root, open_main_window):
     root.destroy()
     category_window = tk.Toplevel()
-    ancho_ventana = 400
-    alto_ventana = 400
+    ancho_ventana = 600
+    alto_ventana = 500
     x_ventana = category_window.winfo_screenwidth() // 2 - ancho_ventana // 2
     y_ventana = category_window.winfo_screenheight() // 2 - alto_ventana // 2
     posicion = str(ancho_ventana) + "x" + str(alto_ventana) + "+" + str(x_ventana) + "+" + str(y_ventana)
     category_window.geometry(posicion)
     category_window.title("Gestión de categorias")
+    category_window.configure(bg="#f8f8f8")
     # category_window.geometry("400x400")
 
-    tk.Label(category_window, text="Nomrbe de categoria:").pack(pady=5)
-    name_entry = tk.Entry(category_window, width=30)
+    tk.Label(category_window, text="Nombre de categoria:", font=("Arial", 14), bg="#f8f8f8").pack(pady=10)
+    name_entry = tk.Entry(category_window, width=30, font=("Arial", 14), bg="#e5e5e5", relief="sunken")
     name_entry.pack(pady=5)
 
-    tk.Button(category_window, text="Agregar categoria", command=lambda: add_category(name_entry, category_list)).pack(pady=5)
+    tk.Button(category_window, text="Agregar categoria", width=18, command=lambda: add_category(name_entry, category_list), bg="#d3d3d3", font=("Arial", 12),activebackground= "#b5b5b5").pack(pady=5)
 
     category_list = tk.Listbox(category_window, width=40, height=10)
     category_list.pack(pady=10)
 
-    tk.Button(category_window, text="Actualizar categoria seleccionada", command=lambda: update_category(category_list)).pack(pady=5)
-    tk.Button(category_window, text="Eliminar categoria seleccionada", command=lambda: delete_category(category_list)).pack(pady=5)
+    tk.Button(category_window, text="Actualizar categoria seleccionada", command=lambda: update_category(category_list), bg="#d3d3d3",  font=("Arial", 12),activebackground= "#b5b5b5").pack(pady=5)
+    tk.Button(category_window, text="Eliminar categoria seleccionada", command=lambda: delete_category(category_list), bg="#d3d3d3",  font=("Arial", 12),activebackground= "#b5b5b5").pack(pady=5)
 
     update_category_list(category_list)
 
-    tk.Button(category_window, text="Volver", command=lambda: go_back(category_window, open_main_window)).pack(pady=10)
+    tk.Button(category_window, text="VOLVER",width=10, command=lambda: go_back(category_window, open_main_window), bg="#84001c", fg="#F8F8F8", font=("Arial", 10,"bold"),activebackground= "#6c0017",activeforeground="#eeeeee").pack(pady=10)
 
 def go_back(current_window, open_main_window):
     current_window.destroy()
