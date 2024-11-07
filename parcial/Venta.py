@@ -1,4 +1,4 @@
-from DetalleVenta import DetalleVenta
+from parcial.DetalleVenta import DetalleVenta
 class Venta:
     def __init__(self, id_venta):
         self.id_venta = id_venta
