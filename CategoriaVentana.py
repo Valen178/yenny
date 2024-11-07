@@ -93,7 +93,7 @@ def open_category_crud(root, open_main_window):
     x_ventana = category_window.winfo_screenwidth() // 2 - ancho_ventana // 2
     y_ventana = category_window.winfo_screenheight() // 2 - alto_ventana // 2
     posicion = str(ancho_ventana) + "x" + str(alto_ventana) + "+" + str(x_ventana) + "+" + str(y_ventana)
-    root.geometry(posicion)
+    category_window.geometry(posicion)
     category_window.title("Gestión de categorias")
     # category_window.geometry("400x400")
 
